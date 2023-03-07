@@ -5,6 +5,7 @@ import {
 } from "@chakra-ui/react";
 import useStore from '../store/Store';
 import { toast } from 'react-toastify';
+import DateState from "./DateState";
 
 const ListTodo = () => {
     const store = useStore((state) => state);
@@ -52,9 +53,8 @@ const ListTodo = () => {
                                             <Heading size='xs' textTransform='uppercase'>
                                                 Date 📅
                                             </Heading>
-                                            <Text pt='2' fontSize='sm'>
-                                                {todo.date}
-                                            </Text>
+                                            
+                                            <DateState fecha={todo.date}/>
                                         </Box>
                                         <Button onClick={() => {
                                             store.removeTodo(todo.id);
@@ -102,7 +102,7 @@ const ListTodo = () => {
                                             <Heading size='xs' textTransform='uppercase'>
                                                 Description
                                             </Heading>
-                                            <Text pt='2' fontSize='sm'>
+                                            <Text pt='2' fontSize='sm' as="del">
                                                 {todo.description}
                                             </Text>
                                         </Box>
@@ -118,9 +118,7 @@ const ListTodo = () => {
                                             <Heading size='xs' textTransform='uppercase'>
                                                 Date 📅
                                             </Heading>
-                                            <Text pt='2' fontSize='sm'>
-                                                {todo.date}
-                                            </Text>
+                                            <DateState fecha={todo.date}/>
                                         </Box>
                                         <Button onClick={() => {
                                             store.removeTodo(todo.id);
