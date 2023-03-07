@@ -1,12 +1,8 @@
-import React from 'react'
-
 import {
     Box,
     Input,
     FormLabel,
     FormControl,
-    FormErrorMessage,
-    FormHelperText,
     SimpleGrid,
     Button,
     ButtonGroup,
@@ -19,7 +15,7 @@ import { toast } from 'react-toastify';
 
 const FormTodo = () => {
 
-    const { register, handleSubmit, reset } = useForm<any>();
+    const { register, handleSubmit } = useForm<any>();
 
     const store = useStore();
 
@@ -28,7 +24,7 @@ const FormTodo = () => {
         store.setNewTodo(data.title, data.description, data.responsible, data.date);
         store.addTodo();
         event.target.reset();
-        toast.success("Todo added sucesfully");
+        toast.success("Todo added");
     }
 
     return (
